@@ -120,6 +120,8 @@ App = {
   createTask: async () => {
     App.setLoading(true)
     const content = $('#newTask').val()
+    // https://stackoverflow.com/questions/67273763/blockchain-tutorial-error-the-send-transactions-from-field-must-be-defined
+    // await App.todoList.createTask(content)
     await App.todoList.createTask(content, {from: App.account})
     // refresh the page to refetch the tasks
     window.location.reload()
@@ -128,7 +130,7 @@ App = {
   toggleCompleted: async (e) => {
     App.setLoading(true)
     const taskId = e.target.name
-    await App.todoList.toggleCompleted(taskId)
+    await App.todoList.toggleCompleted(taskId, {from: App.account})
     window.location.reload()
   },
 

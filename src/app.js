@@ -120,7 +120,8 @@ App = {
   createTask: async () => {
     App.setLoading(true)
     const content = $('#newTask').val()
-    await App.todoList.createTask(content)
+    await App.todoList.createTask(content, {from: App.account})
+    // refresh the page to refetch the tasks
     window.location.reload()
   },
 

@@ -23,7 +23,7 @@ contract TodoList {
   );
 
   constructor() public {
-    createTask("Check out kennethliang.com/");
+    createTask("Task #1");
   }
 
   function createTask(string memory _content) public {
@@ -38,6 +38,5 @@ contract TodoList {
     tasks[_id] = _task;
     emit TaskCompleted(_id, _task.completed);
   }
-
 }
 
